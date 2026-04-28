@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Header() {
@@ -31,14 +32,20 @@ export default function Header() {
       <div className="container mx-auto px-4 h-full flex justify-between items-center font-sans">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 group">
-          <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center text-white text-xl font-bold group-hover:rotate-12 transition-transform duration-300">
-            <i className="fa-solid fa-graduation-cap"></i>
+          <div className="relative w-12 h-12 rounded-lg overflow-hidden bg-white shadow-sm transition-transform duration-300 group-hover:rotate-6 flex-shrink-0">
+            <Image
+              src="/image/logo.jpeg"
+              alt="Logo SDAEE-P"
+              fill
+              sizes="48px"
+              className="object-contain"
+            />
           </div>
           <div className="flex flex-col">
-            <span className="font-bold text-gray-900 text-lg leading-tight tracking-tight">
+            <span className="font-bold text-brand-dark text-lg leading-tight tracking-tight">
               SDAEE-P/CFR
             </span>
-            <span className="text-[10px] text-blue-600 font-bold uppercase tracking-widest">
+            <span className="text-[10px] text-primary font-bold uppercase tracking-widest">
               Excellence & Avenir
             </span>
           </div>
@@ -51,17 +58,17 @@ export default function Header() {
               <li key={link.name}>
                 <Link
                   href={link.href}
-                  className="text-gray-600 hover:text-blue-600 font-semibold transition-colors relative group"
+                  className="text-brand-dark/80 hover:text-primary font-semibold transition-colors relative group"
                 >
                   {link.name}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all group-hover:w-full"></span>
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
                 </Link>
               </li>
             ))}
           </ul>
           <Link
             href="#contact"
-            className="px-6 py-2.5 rounded-full bg-blue-600 text-white font-bold transition-all shadow-lg hover:shadow-blue-500/40 hover:-translate-y-0.5 hover:bg-blue-700 active:scale-95"
+            className="px-6 py-2.5 rounded-full bg-primary text-white font-bold transition-all shadow-lg hover:shadow-blue-500/40 hover:-translate-y-0.5 hover:bg-primary/90 active:scale-95"
           >
             Contact
           </Link>
@@ -69,7 +76,7 @@ export default function Header() {
 
         {/* Mobile Menu Toggle */}
         <button
-          className="md:hidden text-gray-900 p-2 focus:outline-none"
+          className="md:hidden text-brand-dark p-2 focus:outline-none"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label="Toggle menu"
         >
@@ -85,7 +92,7 @@ export default function Header() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="md:hidden bg-white border-t border-gray-100 shadow-xl overflow-hidden"
+            className="md:hidden bg-white border-t border-brand-light shadow-xl overflow-hidden"
           >
             <div className="px-4 py-6 flex flex-col gap-4">
               {navLinks.map((link) => (
@@ -93,7 +100,7 @@ export default function Header() {
                   key={link.name}
                   href={link.href}
                   onClick={() => setIsMenuOpen(false)}
-                  className="text-gray-700 hover:text-blue-600 font-medium text-lg py-2 border-b border-gray-50 last:border-0"
+                  className="text-brand-dark/90 hover:text-primary font-medium text-lg py-2 border-b border-brand-light last:border-0"
                 >
                   {link.name}
                 </Link>
@@ -101,7 +108,7 @@ export default function Header() {
               <Link
                 href="#contact"
                 onClick={() => setIsMenuOpen(false)}
-                className="mt-2 w-full text-center py-4 rounded-xl bg-blue-600 text-white font-bold shadow-lg"
+                className="mt-2 w-full text-center py-4 rounded-xl bg-primary text-white font-bold shadow-lg"
               >
                 Contactez-nous
               </Link>

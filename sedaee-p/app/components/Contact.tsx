@@ -37,7 +37,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h4 className="font-bold text-lg">Adresse</h4>
-                    <p className="text-blue-100 text-sm">Centre Ville, Lomé, Togo</p>
+                    <p className="text-blue-100 text-sm">Sis à Tokoin Habitat non loin de chez l'école protestante, rue des tourterelles, N°119</p>
                   </div>
                 </div>
 
@@ -47,7 +47,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h4 className="font-bold text-lg">Téléphone</h4>
-                    <p className="text-blue-100 text-sm">+228 99 57 31 10</p>
+                    <p className="text-blue-100 text-sm">+228 99 57 31 10 / +228 90 37 20 78</p>
                   </div>
                 </div>
 
@@ -57,7 +57,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h4 className="font-bold text-lg">Email</h4>
-                    <p className="text-blue-100 text-sm">contact@sdaee-pcfr.com</p>
+                    <p className="text-blue-100 text-sm">monloukokennedy@gmail.com</p>
                   </div>
                 </div>
               </div>

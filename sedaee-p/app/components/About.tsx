@@ -17,16 +17,16 @@ export default function About() {
 
   const points = [
     {
-      title: "Programmes personnalisés :",
-      desc: "Adaptés au niveau de chaque élève (primaire, collège, lycée, université).",
+      title: "Couverture globale :",
+      desc: "De l'enseignement primaire à l'université, incluant la formation professionnelle et les concours.",
     },
     {
-      title: "Approche pratique :",
-      desc: "Mise en situation réelle pour les cours d'informatique et de langues.",
+      title: "Public varié :",
+      desc: "Accompagnement adapté pour les élèves réguliers ainsi que les candidats libres.",
     },
     {
-      title: "Environnement motivant :",
-      desc: "Des salles aérées et bien équipées.",
+      title: "Pédagogie internationale (APC) :",
+      desc: "Basée sur l'Accréditation, le Perfectionnement et la Certification pour réussir vos examens.",
     },
   ];
 
@@ -43,16 +43,25 @@ export default function About() {
             className="w-full lg:w-1/2 relative group"
           >
             {/* Decorative blobs */}
-            <div className="absolute -top-10 -left-10 w-40 h-40 bg-blue-100/50 rounded-full blur-3xl -z-10"></div>
-            <div className="absolute -bottom-10 -right-5 w-48 h-48 bg-orange-100/50 rounded-full blur-3xl -z-10"></div>
+            <div className="absolute -top-10 -left-10 w-40 h-40 bg-primary/20 rounded-full blur-3xl -z-10"></div>
+            <div className="absolute -bottom-10 -right-5 w-48 h-48 bg-brand-red-light/50 rounded-full blur-3xl -z-10"></div>
 
             <div className="relative rounded-2xl overflow-hidden shadow-2xl transform transition-transform duration-500 hover:scale-[1.01] h-[500px]">
+              {/* Image optimisée pour Mobile/Tablette */}
               <Image
-                src="/image/photo-kenedi.png"
-                alt="Cadre d'apprentissage"
+                src="/image/photo-fondateur-sdaee-mobile.jpeg"
+                alt="Espace d'étude et cours de répétition SDAEE-P au Togo (Mobile)"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover block lg:hidden"
+              />
+              {/* Image optimisée pour PC (Desktop) */}
+              <Image
+                src="/image/photo-fondateur-sdaee.png"
+                alt="Espace d'étude et cours de répétition SDAEE-P au Togo"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="w-full h-full object-cover hidden lg:block"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>
@@ -61,10 +70,10 @@ export default function About() {
             <motion.div
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -bottom-8 -right-4 md:-right-8 bg-white p-6 rounded-xl shadow-xl border-l-4 border-blue-600 max-w-xs z-10"
+              className="absolute -bottom-8 -right-4 md:-right-8 bg-white p-6 rounded-xl shadow-xl border-l-4 border-primary max-w-xs z-10"
             >
-              <p className="font-bold text-gray-900 text-lg mb-1">La clé de la réussite ?</p>
-              <p className="text-sm text-gray-600 leading-relaxed">
+              <p className="font-bold text-brand-dark text-lg mb-1">La clé de la réussite ?</p>
+              <p className="text-sm text-brand-dark/80 leading-relaxed">
                 La persévérance et un bon encadrement.
               </p>
             </motion.div>
@@ -78,14 +87,12 @@ export default function About() {
             variants={fadeInRightVariants}
             className="w-full lg:w-1/2"
           >
-            <h2 className="text-4xl lg:text-5xl font-extrabold text-gray-900 mb-8 leading-tight">
-              Une Pédagogie Adaptée à <span className="text-blue-600">Chacun</span>
+            <h2 className="text-4xl lg:text-5xl font-extrabold text-brand-dark mb-8 leading-tight">
+              SDAEE-P : Accompagnement et <span className="text-primary">Réussite Scolaire</span>
             </h2>
 
-            <p className="text-gray-600 mb-8 leading-relaxed text-lg italic">
-              Bienvenue au <strong>SDAEE-P/CFR</strong>. Nous ne sommes pas seulement un centre de répétitions, 
-              nous sommes une structure d'accompagnement global. Notre mission est de combler les lacunes, de 
-              renforcer les compétences et de préparer nos apprenants aux défis de demain.
+            <p className="text-brand-dark/80 mb-8 leading-relaxed text-lg italic">
+              <strong>SDAEE-P / CFR</strong> (Structure d’Accompagnement des Élèves, Étudiants et Particuliers / Centre de Formation et de Répétition) est une structure éducative qui intervient dans tous les domaines de la formation. Nous accompagnons nos apprenants vers l'excellence, qu'il s'agisse de réussir un examen national ou international.
             </p>
 
             <ul className="space-y-6 mb-10">
@@ -97,11 +104,11 @@ export default function About() {
                   transition={{ delay: index * 0.1 }}
                   className="flex items-start"
                 >
-                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center mt-1 mr-4">
-                    <i className="fa-solid fa-check text-blue-600 text-xs"></i>
+                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center mt-1 mr-4">
+                    <i className="fa-solid fa-check text-primary text-xs"></i>
                   </div>
-                  <span className="text-gray-700 text-base">
-                    <strong className="font-semibold text-gray-900">{point.title}</strong> {point.desc}
+                  <span className="text-brand-dark/90 text-base">
+                    <strong className="font-semibold text-brand-dark">{point.title}</strong> {point.desc}
                   </span>
                 </motion.li>
               ))}
@@ -109,7 +116,7 @@ export default function About() {
 
             <Link
               href="#services"
-              className="inline-flex items-center text-blue-600 font-bold hover:text-blue-800 transition-colors group"
+              className="inline-flex items-center text-primary font-bold hover:text-primary/80 transition-colors group"
             >
               En savoir plus sur notre approche
               <i className="fa-solid fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i>

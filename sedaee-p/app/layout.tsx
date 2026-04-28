@@ -8,8 +8,22 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "SDAEE-P/CFR - Excellence & Avenir",
-  description: "Structure d'accompagnement spécialisée en Mathématiques, Physique, Anglais et Informatique. Nous aidons les élèves et les particuliers à atteindre l'excellence.",
+  title: "Cours de Répétition & Soutien Scolaire au Togo | SDAEE-P",
+  description: "SDAEE-P : Leader du soutien scolaire à Lomé et partout au Togo. Cours de répétition en Mathématiques, Physique, Anglais et Informatique. Excellence académique assurée.",
+  keywords: ["Cours de répétition Togo", "Soutien scolaire Lomé", "Cours en ligne Togo", "SDAEE-P", "Excellence scolaire", "Mathématiques", "Physique", "Informatique"],
+  openGraph: {
+    title: "Cours de Répétition & Soutien Scolaire au Togo | SDAEE-P",
+    description: "Accompagnement scolaire de haute qualité au Togo pour la réussite de vos enfants.",
+    url: "https://www.sdaee-pcfr.com",
+    siteName: "SDAEE-P",
+    locale: "fr_TG",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Cours de Répétition & Soutien Scolaire au Togo | SDAEE-P",
+    description: "Soutien scolaire d'excellence au Togo.",
+  },
 };
 
 export default function RootLayout({
@@ -18,7 +32,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr" className={`${inter.variable} scroll-smooth`}>
+    <html lang="fr" className={`${inter.variable} scroll-smooth`} suppressHydrationWarning>
       <head>
         <link
           rel="stylesheet"
@@ -27,8 +41,30 @@ export default function RootLayout({
           crossOrigin="anonymous"
           referrerPolicy="no-referrer"
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "EducationalOrganization",
+              "name": "SDAEE-P (Excellence & Avenir)",
+              "url": "https://www.sdaee-pcfr.com",
+              "logo": "https://www.sdaee-pcfr.com/image/logo.png",
+              "description": "Cours de répétition et soutien scolaire d'excellence au Togo (Lomé). Spécialisé en Mathématiques, Physique, Anglais et Informatique.",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Lomé",
+                "addressCountry": "TG"
+              },
+              "sameAs": [
+                "https://www.facebook.com/sdaeep",
+                "https://www.linkedin.com/company/sdaeep"
+              ]
+            })
+          }}
+        />
       </head>
-      <body className="font-sans antialiased bg-white text-gray-900">
+      <body className="font-sans antialiased bg-white text-gray-900" suppressHydrationWarning>
         {children}
       </body>
     </html>

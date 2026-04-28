@@ -2,6 +2,22 @@
 
 @theme {
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  
+  /* Palette Complète du Logo */
+  --color-brand-blue-deep: #1e04ed;
+  --color-brand-blue: #2d19c5;
+  --color-brand-blue-light: #6a63f6;
+  --color-brand-blue-lighter: #aca4ed;
+  
+  --color-brand-red-deep: #e60e0d;
+  --color-brand-red: #d7514e;
+  --color-brand-red-light: #e3b1ac;
+  
+  --color-brand-dark: #393814;
+  --color-brand-light: #f9f5f6;
+
+  /* Redéfinition de la couleur primary pour s'adapter automatiquement au site */
+  --color-primary: var(--color-brand-blue);
 
   @keyframes float {
     0%, 100% { transform: translateY(0); }
