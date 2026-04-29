@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 
 export default function Services() {
   const [selectedService, setSelectedService] = useState<any>(null);
-  const [activeTab, setActiveTab] = useState<"enseignements" | "formations">("enseignements");
+  const [activeTab, setActiveTab] = useState<"enseignements" | "formations" | "institutions">("enseignements");
 
   // Empêcher le scroll du body quand le modal est ouvert
   useEffect(() => {
@@ -146,6 +146,22 @@ export default function Services() {
         { label: "3. Simulation", value: "Examens blancs rigoureux pour gérer le stress et le temps." },
       ]
     },
+    {
+      id: "surveillance-examens",
+      category: "institutions",
+      title: "Surveillance d'Examens & Concours",
+      desc: "Mise à disposition de surveillants qualifiés et expérimentés pour garantir le bon déroulement de vos épreuves.",
+      icon: "fa-eye",
+      color: "text-brand-red",
+      bgColor: "bg-brand-red-light",
+      delay: 0.1,
+      details: [
+        { label: "Cibles", value: "Universités publiques et privées, établissements scolaires, centres de formation, examens nationaux et internationaux." },
+        { label: "Objectif principal", value: "Assurer le bon déroulement des épreuves dans un cadre sérieux." },
+        { label: "Garantie", value: "Surveillance rigoureuse, impartiale et crédible pour contribuer à l’équité et la transparence des évaluations." },
+        { label: "Soutien", value: "Appui logistique et organisationnel adapté aux besoins spécifiques de chaque institution." },
+      ]
+    },
   ];
 
   const filteredServices = services.filter(service => service.category === activeTab);
@@ -172,24 +188,26 @@ export default function Services() {
             Nos pôles d'enseignement et d'accompagnement
           </motion.h2>
 
-          {/* Toggle Buttons (Enseignements vs Formations) */}
+          {/* Toggle Buttons (Enseignements vs Formations vs Institutions) */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="inline-flex bg-white p-1.5 rounded-full shadow-sm relative mx-auto"
+            className="inline-grid grid-cols-3 bg-white p-1.5 rounded-full shadow-sm relative mx-auto w-full max-w-2xl sm:max-w-max"
           >
             {/* Sliding Pill Background */}
             <div 
-              className={`absolute top-1.5 bottom-1.5 w-[calc(50%-6px)] rounded-full transition-all duration-300 ease-out z-0 ${
-                activeTab === "enseignements" ? "bg-primary left-1.5" : "bg-teal-600 left-[calc(50%+3px)]"
-              }`}
+              className={`absolute top-1.5 bottom-1.5 w-[calc(33.33%-4px)] rounded-full transition-all duration-300 ease-out z-0 ${
+                activeTab === "enseignements" ? "bg-primary translate-x-0" : 
+                activeTab === "formations" ? "bg-teal-600 translate-x-full" : 
+                "bg-brand-red translate-x-[200%]"
+              } left-1.5`}
             />
             
             <button
               onClick={() => setActiveTab("enseignements")}
-              className={`relative z-10 px-6 sm:px-8 py-3 rounded-full text-sm font-bold transition-colors w-40 sm:w-48 ${
+              className={`relative z-10 px-1 sm:px-6 py-3 rounded-full text-[10px] sm:text-sm font-bold transition-colors ${
                 activeTab === "enseignements" ? "text-white" : "text-brand-dark/80 hover:text-brand-dark"
               }`}
             >
@@ -197,11 +215,19 @@ export default function Services() {
             </button>
             <button
               onClick={() => setActiveTab("formations")}
-              className={`relative z-10 px-6 sm:px-8 py-3 rounded-full text-sm font-bold transition-colors w-40 sm:w-48 ${
+              className={`relative z-10 px-1 sm:px-6 py-3 rounded-full text-[10px] sm:text-sm font-bold transition-colors ${
                 activeTab === "formations" ? "text-white" : "text-brand-dark/80 hover:text-brand-dark"
               }`}
             >
               Formations
+            </button>
+            <button
+              onClick={() => setActiveTab("institutions")}
+              className={`relative z-10 px-1 sm:px-6 py-3 rounded-full text-[10px] sm:text-sm font-bold transition-colors ${
+                activeTab === "institutions" ? "text-white" : "text-brand-dark/80 hover:text-brand-dark"
+              }`}
+            >
+              Institutions
             </button>
           </motion.div>
         </div>
